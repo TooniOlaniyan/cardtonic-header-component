@@ -53,7 +53,7 @@ function NavContainer() {
   return (
     <div className='nav-items'>
       <div className="navItem">
-       <a href="#"><p>Upskill</p></a>
+       <p>Upskill</p>
        <div className="drop-down">
        <div ref={btnRef} onClick={handleClick} className="drop">
         <p>Customer</p>
