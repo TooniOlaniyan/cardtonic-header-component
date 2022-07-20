@@ -24,36 +24,41 @@ function MobileMenu() {
         setOpenTwo(!openTwo)
     }
   return (
-    <div className='mobileMenuContainer'>
+    <AnimatePresence>
+    <motion.div initial={{x:-200}} animate={{x:[50,0]}}  className='mobileMenuContainer'>
         <a href="">
             <p>Upskill</p>
           
         </a>
-        <div className='mobileDropdown'>
+        <motion.div className='mobileDropdown'>
             <div className="mobileFlex">
             <p>Customer</p>
             <RiArrowDownSLine onClick={handleCLickOne} className='menuIconMobile'/>
             </div>
             <AnimatePresence>
-            { open && <motion.div initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }} className="mobileListTest">
+            { open && <motion.div initial={{ opacity: 0 , x:-100 }}
+                animate={{ opacity: 1 , x: 0 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.3 }} className="mobileListTest">
                 <p>User Rewards</p>
                 <p>Gift cards Rates</p>
                 <p>Contact Us</p>
             </motion.div>}
             </AnimatePresence>
-        </div>
+        </motion.div>
         <div className='mobileDropdown'>
         <div className="mobileFlex">
             <p>Business</p>
             <RiArrowDownSLine onClick={handleCLickTwo} className='menuIconMobile'/>
             </div>
-            { openOne && <div className="mobileListTest">
+            { openOne && <motion.div initial={{ opacity: 0 , x:-100 }}
+                animate={{ opacity: 1 , x: 0 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.3 }} className="mobileListTest">
                 <p>Become A partner</p>
                 <p>#CTGivesBack</p>
                 <p>Work With Us</p>
-            </div>}
+            </motion.div>}
         </div>
 
 
@@ -62,14 +67,18 @@ function MobileMenu() {
             <p>Customer</p>
             <RiArrowDownSLine onClick={handleCLickThree} className='menuIconMobile'/>
             </div>
-            { openTwo && <div className="mobileListTest">
+            { openTwo && <motion.div initial={{ opacity: 0 , x:-100 }}
+                animate={{ opacity: 1 , x: 0 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.3 }} className="mobileListTest">
                 <p>User Rewards</p>
                 <p>Gift cards Rates</p>
                 <p>Contact Us</p>
-            </div>}
+            </motion.div>}
         </div>
 
-    </div>
+    </motion.div>
+    </AnimatePresence>
   )
 }
 
