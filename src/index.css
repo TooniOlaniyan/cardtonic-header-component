@@ -182,8 +182,8 @@ a{
     height: 30px;
     width: 30px;
     position: fixed;
-    top: 40px;
-    right: 50px;
+    top: 50px;
+    right: 90px;
     background: var(--text-color);
     border-radius: 50%;
     z-index: 0;
