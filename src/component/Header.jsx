@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import NavContainer from './NavContainer'
 import {ReactComponent as Logo} from '../asset/cardtonicLogo.svg'
 import { Turn as Hamburger } from 'hamburger-react'
@@ -7,10 +7,23 @@ import {motion , AnimatePresence} from 'framer-motion'
 
 function Header() {
     const [isOpened , setIsOpened] = useState(false)
+    const boxVarient = {
+      open: {
+        scale: 0,
+        scale: 100
+      },
+      close:{
+        scale:100,
+        scale:0
+      }
+    }
+
+  
   return (
     <div className='navigation'>
       {isOpened && <MobileMenu />}
-      {isOpened && <AnimatePresence> <motion.div initial={{scale:0}} animate={{scale:100}} className='bgContainer'></motion.div> </AnimatePresence> }
+      {isOpened ?   <motion.div variants={boxVarient} animate = 'open' className='bgContainer'></motion.div> : <motion.div variants={boxVarient} animate = 'close' className='bgContainer'></motion.div> }
+    
         <Logo/>
         <Hamburger toggled={isOpened} toggle={setIsOpened} easing='ease-in' size={20} direction='left'/>
        

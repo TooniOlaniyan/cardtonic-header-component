@@ -4,6 +4,7 @@ import MobileList from './MobileList'
 import {motion , AnimatePresence} from 'framer-motion'
 
 function MobileMenu() {
+   
     const [open , setOpen] = useState(false)
     const [openOne , setOpenOne] = useState(false)
     const [openTwo , setOpenTwo] = useState(false)
@@ -25,7 +26,7 @@ function MobileMenu() {
     }
   return (
     <AnimatePresence>
-    <motion.div initial={{x:-200}} animate={{x:[50,0]}}  className='mobileMenuContainer'>
+    <motion.div initial={{x:-200}} animate={{x:[50,0]}} exit={{x:[50,0,-200]}} className='mobileMenuContainer'>
         <a href="">
             <p>Upskill</p>
           

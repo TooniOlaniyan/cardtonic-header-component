@@ -165,7 +165,6 @@ a{
     justify-content: center;
     align-items: flex-start;
     flex-direction: column;
-    /* background-color: #002444; */
     height: 100vh;
     padding: 0 5.5rem;
     width: 100vw;
@@ -180,7 +179,6 @@ a{
   }
 
   .bgContainer{
-    overflow-x: hidden !important;
     height: 30px;
     width: 30px;
     position: fixed;
@@ -194,7 +192,6 @@ a{
    
   }
   .bgContainerTwo{
-    overflow-x: hidden !important;
     height: 30px;
     width: 30px;
     position: fixed;
