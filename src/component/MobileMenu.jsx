@@ -3,7 +3,23 @@ import {RiArrowDownSLine} from 'react-icons/ri'
 import MobileList from './MobileList'
 import {motion , AnimatePresence} from 'framer-motion'
 
-function MobileMenu() {
+function MobileMenu({isOpened}) {
+    const menuVarient = {
+        initial:{
+            x: -200
+        },
+        final:{
+            x:-200,
+            X:50,
+            x:0
+        },
+        exit:{
+            x: 0,
+            x: 50,
+            x: -200
+        }
+        
+    }
    
     const [open , setOpen] = useState(false)
     const [openOne , setOpenOne] = useState(false)
@@ -26,60 +42,61 @@ function MobileMenu() {
     }
   return (
     <AnimatePresence>
-    <motion.div initial={{x:-200}} animate={{x:[50,0]}} exit={{x:[50,0,-200]}} className='mobileMenuContainer'>
-        <a href="">
-            <p>Upskill</p>
-          
-        </a>
-        <motion.div className='mobileDropdown'>
-            <div className="mobileFlex">
-            <p>Customer</p>
-            <RiArrowDownSLine onClick={handleCLickOne} className='menuIconMobile'/>
-            </div>
-            <AnimatePresence>
-            { open && <motion.div initial={{ opacity: 0 , x:-100 }}
-                animate={{ opacity: 1 , x: 0 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.3 }} className="mobileListTest">
-                <p>User Rewards</p>
-                <p>Gift cards Rates</p>
-                <p>Contact Us</p>
-            </motion.div>}
-            </AnimatePresence>
-        </motion.div>
-        <div className='mobileDropdown'>
+    {isOpened && <motion.div variants={menuVarient} initial= 'initial' animate= 'final' exit={{x:[0,-130,1000]}} className='mobileMenuContainer'>
+    <a key={1} className='skill' href="">
+       <p>Upskill</p>
+      
+    </a>
+    <motion.div key={2} className='mobileDropdown'>
         <div className="mobileFlex">
-            <p>Business</p>
-            <RiArrowDownSLine onClick={handleCLickTwo} className='menuIconMobile'/>
-            </div>
-            { openOne && <motion.div initial={{ opacity: 0 , x:-100 }}
-                animate={{ opacity: 1 , x: 0 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.3 }} className="mobileListTest">
-                <p>Become A partner</p>
-                <p>#CTGivesBack</p>
-                <p>Work With Us</p>
-            </motion.div>}
+        <p>Customer</p>
+        <RiArrowDownSLine onClick={handleCLickOne} className='menuIconMobile'/>
         </div>
-
-
-        <div className='mobileDropdown'>
-        <div className="mobileFlex">
-            <p>Customer</p>
-            <RiArrowDownSLine onClick={handleCLickThree} className='menuIconMobile'/>
-            </div>
-            { openTwo && <motion.div initial={{ opacity: 0 , x:-100 }}
-                animate={{ opacity: 1 , x: 0 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.3 }} className="mobileListTest">
-                <p>User Rewards</p>
-                <p>Gift cards Rates</p>
-                <p>Contact Us</p>
-            </motion.div>}
-        </div>
-
+        <AnimatePresence>
+        { open && <motion.div initial={{ opacity: 0 , x:-100 }}
+            animate={{ opacity: 1 , x: 0 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }} className="mobileListTest">
+            <p>User Rewards</p>
+            <p>Gift cards Rates</p>
+            <p>Contact Us</p>
+        </motion.div>}
+        </AnimatePresence>
     </motion.div>
-    </AnimatePresence>
+    <div key={3} className='mobileDropdown'>
+    <div className="mobileFlex">
+        <p>Business</p>
+        <RiArrowDownSLine onClick={handleCLickTwo} className='menuIconMobile'/>
+        </div>
+        { openOne && <motion.div initial={{ opacity: 0 , x:-100 }}
+            animate={{ opacity: 1 , x: 0 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }} className="mobileListTest">
+            <p>Become A partner</p>
+            <p>#CTGivesBack</p>
+            <p>Work With Us</p>
+        </motion.div>}
+    </div>
+
+
+    <div key={4} className='mobileDropdown'>
+    <div className="mobileFlex">
+        <p>Customer</p>
+        <RiArrowDownSLine onClick={handleCLickThree} className='menuIconMobile'/>
+        </div>
+        { openTwo && <motion.div initial={{ opacity: 0 , x:-100 }}
+            animate={{ opacity: 1 , x: 0 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }} className="mobileListTest">
+            <p>User Rewards</p>
+            <p>Gift cards Rates</p>
+            <p>Contact Us</p>
+        </motion.div>}
+    </div>
+
+</motion.div>}
+</AnimatePresence>
+   
   )
 }
 

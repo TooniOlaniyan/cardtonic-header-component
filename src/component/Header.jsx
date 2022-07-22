@@ -21,11 +21,11 @@ function Header() {
   
   return (
     <div className='navigation'>
-      {isOpened && <MobileMenu />}
+      <MobileMenu isOpened={isOpened} />
       {isOpened ?   <motion.div variants={boxVarient} animate = 'open' className='bgContainer'></motion.div> : <motion.div variants={boxVarient} animate = 'close' className='bgContainer'></motion.div> }
     
         <Logo/>
-        <Hamburger toggled={isOpened} toggle={setIsOpened} easing='ease-in' size={20} direction='left'/>
+        <Hamburger  toggled={isOpened} toggle={setIsOpened} easing='ease-in' size={20} direction='left'/>
        
         <NavContainer />
        
